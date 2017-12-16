@@ -2,11 +2,13 @@ package com.hugosergent.app;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -16,11 +18,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class FXMLController implements Initializable {
-    
+
     @FXML
     private AnchorPane anchorpane;
     @FXML
     private GridPane grille;
+
     @FXML
     private Label PointsNoir;
     @FXML
@@ -67,7 +70,7 @@ public class FXMLController implements Initializable {
     public void BPasserPressed() {
         /*faire un boolean pour empecher le retour du clic*/
         System.out.println("Joueur Passe\n");
-        
+
         joueur.setPasse(true);
 
         /*Changement de joueur*/
@@ -79,7 +82,7 @@ public class FXMLController implements Initializable {
         }
         /*Definition de la nouvelle couleur*/
         couleur = joueur.getCouleur();
-        
+
         BoutonReMain.setVisible(true);
         precedantPasse = true;
 
@@ -98,7 +101,7 @@ public class FXMLController implements Initializable {
      */
     @FXML
     public void BSVGPressed() {
-        
+
     }
 
     /*
@@ -109,7 +112,7 @@ public class FXMLController implements Initializable {
 
         /*Changement de joueur*/
         Tour = !Tour;
-        
+
         if (Tour == true) {
             joueur = noir;
         } else {
@@ -128,35 +131,33 @@ public class FXMLController implements Initializable {
     public void MousePressed(MouseEvent mouseEvent) {
         if (partieFinie == false) {
             if (precedantPasse == false) {
-                
-                
-                /*Creation graphique d'une pierre*/
-                Circle circle = new Circle(mouseEvent.getX(), mouseEvent.getY(), 15, couleur);
+
                 /*Création d'une pierre*/
                 Pierre p = new Pierre();
-                p.setpositionx((int) (circle.getCenterX()) / 42);
-                p.setpositiony((int) (circle.getCenterY()) / 42);
-                
+                p.setColor(couleur);
+                p.setpositionx((int) (mouseEvent.getX()) / 42);
+                p.setpositiony((int) (mouseEvent.getY()) / 42);
+
                 positionPrise = goban.isPositionPrise(p);
 
                 /*Verifier que le joueur peut poser la pierre a cette place*/
                 if (positionPrise == false) {
-                    grille.add(circle, (int) (circle.getCenterX()) / 42, (int) (circle.getCenterY()) / 42, 1, 1);
-                    GridPane.setHalignment(circle, HPos.CENTER); // To align horizontally in the cell
-                    GridPane.setValignment(circle, VPos.CENTER); // To align vertically in the cell
+                    
                     goban.ajouter(p);
                     joueur.ListePierre.add(p);
+
+                    //System.out.println("joueur: " + joueur.toString() + ", nombre de pierres: " + joueur.ListePierre.size());
+                    //System.out.println("Ajout de la pierre; " + p.getpositionx()+ " "+ p.getpositiony());
+                    goban.MiseAJourGoban(p);
                     
-                    
-                    System.out.println("joueur: " + joueur.toString() + ", nombre de pierres: " + joueur.ListePierre.size());
-                    System.out.println("Ajut de la pierre; " + p.getpositionx()+ " "+ p.getpositiony());
-                    
+                    /*Mise a jour graphique*/
+                    MiseAJourGraphique();
 
                     /*Changement de joueur*/
                     Tour = !Tour;
-                    
+
                     joueur.setPasse(false);
-                    
+
                     if (Tour == true) {
                         joueur = noir;
                     } else {
@@ -166,6 +167,24 @@ public class FXMLController implements Initializable {
                     couleur = joueur.getCouleur();
                 }
                 /*Fin positionPrise*/
+            }
+        }
+    }
+
+    /*Mise a jour graphique*/
+    public void MiseAJourGraphique() {
+
+        Pierre[][] grilleComp = this.goban.getGoban();
+        this.grille.getChildren().clear();
+        for (Pierre[] ligne : grilleComp) {
+            for (Pierre p : ligne) {
+                if (p != null) {
+                    /*Creation graphique d'une pierre*/
+                    Circle circle = new Circle(p.getpositionx(), p.getpositiony(), 15, p.getColor());
+                    grille.add(circle, p.getpositionx(), p.getpositiony());
+                    GridPane.setHalignment(circle, HPos.CENTER); // To align horizontally in the cell
+                    GridPane.setValignment(circle, VPos.CENTER); // To align vertically in the cell
+                }
             }
         }
     }
@@ -186,6 +205,6 @@ public class FXMLController implements Initializable {
         System.out.println("CA COMMENCE\n");
         joueur = noir;
         couleur = joueur.getCouleur();
-        
+
     }
 }
