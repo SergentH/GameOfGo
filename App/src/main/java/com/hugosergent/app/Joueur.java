@@ -17,11 +17,22 @@ public class Joueur {
     private boolean passe;
     private Color couleur;
     ArrayList<Pierre> ListePierre = new ArrayList<>();
+    private int score;
 
     Joueur() {
         this.passe = false;
+        this.score=0;
     }
 
+    public int getScore()
+    {
+        return this.score;
+    }
+    public void setScore(int s)
+    {
+        this.score = this.score + s;
+    }
+    
     public boolean getPasse() {
         return this.passe;
     }

@@ -6,6 +6,7 @@
 package com.hugosergent.app;
 
 import java.util.ArrayList;
+import java.util.List;
 import javafx.scene.paint.Color;
 
 /**
@@ -39,7 +40,6 @@ public class Goban {
         if (x >= 0 && x <= 18 && y >= 0 && y <= 18) {
             p = this.grille[x][y];
         }
-
         return p;
     }
 
@@ -54,7 +54,7 @@ public class Goban {
 
     public boolean comparaisonCouleur(Pierre p1, Pierre p2) {
         boolean result;
-        if (p1.getColor().equals(p2.getColor())) {
+        if (p1.getColor() == p2.getColor()) {
             result = true;
         } else {
             result = false;
@@ -104,13 +104,12 @@ public class Goban {
                 }
             }
         }
-
         return estPrisonnier;
     }
 
     /*Pour grouper les pierres autour d'une pierre posée*/
     private void CreerGroupePrisonnier(Pierre p) {
-
+        System.out.println("Pierre: " + p.getpositionx() + " " + p.getpositiony() + " " + p.getColor().toString());
         /*Pierre pour boucler sur la suivante*/
         Pierre pSuite;
 
@@ -122,10 +121,10 @@ public class Goban {
         if (this.getPierre(p.getpositionx(), p.getpositiony() - 1) != null) {
             System.out.println("Groupe haut");
             pSuite = this.getPierre(p.getpositionx(), p.getpositiony() - 1);
-            if (comparaisonCouleur(p, pSuite) == false) {
-                if (listePrisonniers.indexOf(p) == -1) {
-                    listePrisonniers.add(p);
-                    CreerGroupePrisonnier(p);
+            if (comparaisonCouleur(p, pSuite) == true) {
+                if (listePrisonniers.indexOf(pSuite) == -1) {
+                    listePrisonniers.add(pSuite);
+                    CreerGroupePrisonnier(pSuite);
                 }
             }
         }
@@ -133,10 +132,10 @@ public class Goban {
         if (this.getPierre(p.getpositionx(), p.getpositiony() + 1) != null) {
             System.out.println("Groupe bas");
             pSuite = this.getPierre(p.getpositionx(), p.getpositiony() + 1);
-            if (comparaisonCouleur(p, pSuite) == false) {
-                if (listePrisonniers.indexOf(p) == -1) {
-                    listePrisonniers.add(p);
-                    CreerGroupePrisonnier(p);
+            if (comparaisonCouleur(p, pSuite) == true) {
+                if (listePrisonniers.indexOf(pSuite) == -1) {
+                    listePrisonniers.add(pSuite);
+                    CreerGroupePrisonnier(pSuite);
                 }
             }
         }
@@ -144,27 +143,27 @@ public class Goban {
         if (this.getPierre(p.getpositionx() + 1, p.getpositiony()) != null) {
             System.out.println("Groupe droite");
             pSuite = this.getPierre(p.getpositionx() + 1, p.getpositiony());
-            if (comparaisonCouleur(p, pSuite) == false) {
-                if (listePrisonniers.indexOf(p) == -1) {
-                    listePrisonniers.add(p);
-                    CreerGroupePrisonnier(p);
+            if (comparaisonCouleur(p, pSuite) == true) {
+                if (listePrisonniers.indexOf(pSuite) == -1) {
+                    listePrisonniers.add(pSuite);
+                    CreerGroupePrisonnier(pSuite);
                 }
             }
         }
-        //Pierre du haut
+        //Pierre de gauche
         if (this.getPierre(p.getpositionx() - 1, p.getpositiony()) != null) {
             System.out.println("Groupe gauche");
             pSuite = this.getPierre(p.getpositionx() - 1, p.getpositiony());
-            if (comparaisonCouleur(p, pSuite) == false) {
-                if (listePrisonniers.indexOf(p) == -1) {
-                    listePrisonniers.add(p);
-                    CreerGroupePrisonnier(p);
+            if (comparaisonCouleur(p, pSuite) == true) {
+                if (listePrisonniers.indexOf(pSuite) == -1) {
+                    listePrisonniers.add(pSuite);
+                    CreerGroupePrisonnier(pSuite);
                 }
             }
         }
     }
 
-    /*Pour verifier qu'un groupe est prisonnié avec les limites du goban*/
+    /*Pour verifier qu'un groupe est prisonnier avec les bordures*/
     private boolean estPrisonnier() {
         for (Pierre p : listePrisonniers) {
             //haut
@@ -186,7 +185,7 @@ public class Goban {
                 }
             }
             //gauche
-            if (p.getpositiony() - 1 >= 0) {
+            if (p.getpositionx() - 1 >= 0) {
                 if (this.getPierre(p.getpositionx() - 1, p.getpositiony()) == null) {
                     return false;
                 }
