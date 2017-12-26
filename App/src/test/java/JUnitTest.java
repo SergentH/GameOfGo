@@ -1,0 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import com.hugosergent.app.Joueur;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import junit.framework.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Hugo
+ */
+public class JUnitTest extends TestCase {
+
+    public JUnitTest() {
+    }
+
+    @Test
+    public void testJoueur() throws Exception {
+        
+    }
+
+}

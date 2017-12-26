@@ -31,8 +31,6 @@ public class FXMLController implements Initializable {
     @FXML
     private Button BoutonPasser;
     @FXML
-    private Button BoutonSauvegarder;
-    @FXML
     private Button BoutonReMain;
 
 
@@ -89,7 +87,6 @@ public class FXMLController implements Initializable {
             partieFinie = true;
             BoutonReMain.setVisible(false);
             BoutonPasser.setVisible(false);
-            BoutonSauvegarder.setVisible(false);
 
             Territoire T = new Territoire();
             T.rechercheIntersections(goban);
@@ -125,14 +122,6 @@ public class FXMLController implements Initializable {
             }
 
         }
-    }
-
-    /*
-    * Fonction permettant de sauvegarder
-     */
-    @FXML
-    public void BSVGPressed() {
-
     }
 
     /*

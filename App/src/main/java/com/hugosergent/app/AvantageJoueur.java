@@ -15,7 +15,7 @@ public class AvantageJoueur implements Comparator<Joueur> {
 
     @Override
     public int compare(Joueur j1, Joueur j2) {
-        return j1.ListePierre.size() - j2.ListePierre.size();
+        return j1.getScore() - j2.getScore();
     }
 
 }
