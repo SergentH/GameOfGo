@@ -6,8 +6,6 @@
 package com.hugosergent.app;
 
 import java.util.ArrayList;
-import java.util.List;
-import javafx.scene.paint.Color;
 
 /**
  *
@@ -62,6 +60,7 @@ public class Goban {
         return result;
     }
 
+    /*Classe amorcant la suppression des pierres*/
     public int MiseAJourGoban(Pierre p) {
         int estPrisonnier = 0;
         //Pour choper la pierre du dessus
@@ -69,7 +68,7 @@ public class Goban {
             if (comparaisonCouleur(p, this.getPierre(p.getpositionx(), p.getpositiony() - 1)) == false) {
                 listePrisonniers.clear();
                 CreerGroupePrisonnier(this.getPierre(p.getpositionx(), p.getpositiony() - 1));
-                if (estPrisonnier()) {
+                if (ControleBordures()) {
                     estPrisonnier += SuppPrisonnieres();
                 }
             }
@@ -79,7 +78,7 @@ public class Goban {
             if (comparaisonCouleur(p, this.getPierre(p.getpositionx(), p.getpositiony() + 1)) == false) {
                 listePrisonniers.clear();
                 CreerGroupePrisonnier(this.getPierre(p.getpositionx(), p.getpositiony() + 1));
-                if (estPrisonnier()) {
+                if (ControleBordures()) {
                     estPrisonnier += SuppPrisonnieres();
                 }
             }
@@ -89,7 +88,7 @@ public class Goban {
             if (comparaisonCouleur(p, this.getPierre(p.getpositionx() + 1, p.getpositiony())) == false) {
                 listePrisonniers.clear();
                 CreerGroupePrisonnier(this.getPierre(p.getpositionx() + 1, p.getpositiony()));
-                if (estPrisonnier()) {
+                if (ControleBordures()) {
                     estPrisonnier += SuppPrisonnieres();
                 }
             }
@@ -99,7 +98,7 @@ public class Goban {
             if (comparaisonCouleur(p, this.getPierre(p.getpositionx() - 1, p.getpositiony())) == false) {
                 listePrisonniers.clear();
                 CreerGroupePrisonnier(this.getPierre(p.getpositionx() - 1, p.getpositiony()));
-                if (estPrisonnier()) {
+                if (ControleBordures()) {
                     estPrisonnier += SuppPrisonnieres();
                 }
             }
@@ -109,7 +108,7 @@ public class Goban {
 
     /*Pour grouper les pierres autour d'une pierre posée*/
     private void CreerGroupePrisonnier(Pierre p) {
-        System.out.println("Pierre: " + p.getpositionx() + " " + p.getpositiony() + " " + p.getColor().toString());
+       // System.out.println("Pierre: " + p.getpositionx() + " " + p.getpositiony() + " " + p.getColor().toString());
         /*Pierre pour boucler sur la suivante*/
         Pierre pSuite;
 
@@ -119,7 +118,7 @@ public class Goban {
 
         //Pierre du haut
         if (this.getPierre(p.getpositionx(), p.getpositiony() - 1) != null) {
-            System.out.println("Groupe haut");
+           // System.out.println("Groupe haut");
             pSuite = this.getPierre(p.getpositionx(), p.getpositiony() - 1);
             if (comparaisonCouleur(p, pSuite) == true) {
                 if (listePrisonniers.indexOf(pSuite) == -1) {
@@ -130,7 +129,7 @@ public class Goban {
         }
         //Pierre du bas
         if (this.getPierre(p.getpositionx(), p.getpositiony() + 1) != null) {
-            System.out.println("Groupe bas");
+           // System.out.println("Groupe bas");
             pSuite = this.getPierre(p.getpositionx(), p.getpositiony() + 1);
             if (comparaisonCouleur(p, pSuite) == true) {
                 if (listePrisonniers.indexOf(pSuite) == -1) {
@@ -141,7 +140,7 @@ public class Goban {
         }
         //Pierre du droite
         if (this.getPierre(p.getpositionx() + 1, p.getpositiony()) != null) {
-            System.out.println("Groupe droite");
+           // System.out.println("Groupe droite");
             pSuite = this.getPierre(p.getpositionx() + 1, p.getpositiony());
             if (comparaisonCouleur(p, pSuite) == true) {
                 if (listePrisonniers.indexOf(pSuite) == -1) {
@@ -152,7 +151,7 @@ public class Goban {
         }
         //Pierre de gauche
         if (this.getPierre(p.getpositionx() - 1, p.getpositiony()) != null) {
-            System.out.println("Groupe gauche");
+            //System.out.println("Groupe gauche");
             pSuite = this.getPierre(p.getpositionx() - 1, p.getpositiony());
             if (comparaisonCouleur(p, pSuite) == true) {
                 if (listePrisonniers.indexOf(pSuite) == -1) {
@@ -164,7 +163,7 @@ public class Goban {
     }
 
     /*Pour verifier qu'un groupe est prisonnier avec les bordures*/
-    private boolean estPrisonnier() {
+    private boolean ControleBordures() {
         for (Pierre p : listePrisonniers) {
             //haut
             if (p.getpositiony() - 1 >= 0) {
@@ -193,7 +192,7 @@ public class Goban {
         }
         return true;
     }
-
+    
     /*Supprimer les pierres prisonnieres*/
     private int SuppPrisonnieres() {
         int nbSuppression = listePrisonniers.size();
@@ -203,4 +202,7 @@ public class Goban {
         return nbSuppression;
     }
 
+    
+    /*Calculer le score des joueurs*/
+    
 }

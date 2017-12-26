@@ -2,13 +2,11 @@ package com.hugosergent.app;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -69,7 +67,6 @@ public class FXMLController implements Initializable {
     @FXML
     public void BPasserPressed() {
         /*faire un boolean pour empecher le retour du clic*/
-        System.out.println("Joueur Passe\n");
 
         joueur.setPasse(true);
 
@@ -93,6 +90,40 @@ public class FXMLController implements Initializable {
             BoutonReMain.setVisible(false);
             BoutonPasser.setVisible(false);
             BoutonSauvegarder.setVisible(false);
+
+            Territoire T = new Territoire();
+            T.rechercheIntersections(goban);
+            
+            /* Affichage des intersections
+            for (Intersection[] Ligne : T.ListeIntersections) {
+                for (Intersection i : Ligne) {
+                    if (i != null) {
+                        Circle circle = new Circle(15, Color.BROWN);
+                        this.grille.add(circle, i.getpositionx(), i.getpositiony());
+                        GridPane.setHalignment(circle, HPos.CENTER); // To align horizontally in the cell
+                        GridPane.setValignment(circle, VPos.CENTER); // To align vertically in the cell
+                    }
+
+                }
+            }
+            */
+            T.CalculScore(noir, blanc, goban);
+            PointsNoir.setText(Integer.toString(noir.getScore()));
+            PointsBlanc.setText(Integer.toString(blanc.getScore()));
+            
+            if(noir.getScore() >  blanc.getScore())
+            {
+                LabelFin.setText("Vainqueur NOIR");
+            }
+            else if(noir.getScore() <  blanc.getScore())
+            {
+                LabelFin.setText("Vainqueur BLANC");
+            }
+            else
+            {
+                LabelFin.setText("EGALITE");
+            }
+
         }
     }
 
@@ -142,14 +173,14 @@ public class FXMLController implements Initializable {
 
                 /*Verifier que le joueur peut poser la pierre a cette place*/
                 if (positionPrise == false) {
-                    
+
                     goban.ajouter(p);
                     joueur.ListePierre.add(p);
 
                     //System.out.println("joueur: " + joueur.toString() + ", nombre de pierres: " + joueur.ListePierre.size());
                     //System.out.println("Ajout de la pierre; " + p.getpositionx()+ " "+ p.getpositiony());
                     goban.MiseAJourGoban(p);
-                    
+
                     /*Mise a jour graphique*/
                     MiseAJourGraphique();
 
@@ -180,8 +211,8 @@ public class FXMLController implements Initializable {
             for (Pierre p : ligne) {
                 if (p != null) {
                     /*Creation graphique d'une pierre*/
-                    Circle circle = new Circle(p.getpositionx(), p.getpositiony(), 15, p.getColor());
-                    grille.add(circle, p.getpositionx(), p.getpositiony());
+                    Circle circle = new Circle(15, p.getColor());
+                    this.grille.add(circle, p.getpositionx(), p.getpositiony());
                     GridPane.setHalignment(circle, HPos.CENTER); // To align horizontally in the cell
                     GridPane.setValignment(circle, VPos.CENTER); // To align vertically in the cell
                 }

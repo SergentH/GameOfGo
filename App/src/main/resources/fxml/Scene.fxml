@@ -68,7 +68,7 @@
         <Label layoutX="28.0" layoutY="849.0" prefHeight="21.0" prefWidth="39.0" text="Blanc" />
         <Label fx:id="PointsNoir" layoutX="89.0" layoutY="814.0" prefHeight="21.0" prefWidth="39.0" text="0" />
         <Label fx:id="PointsBlanc" layoutX="89.0" layoutY="849.0" prefHeight="21.0" prefWidth="39.0" text="0" />
-        <Label fx:id="LabelFin" layoutX="164.0" layoutY="803.0" prefHeight="92.0" prefWidth="102.0" text="FIN" visible="false">
+        <Label fx:id="LabelFin" alignment="CENTER" contentDisplay="CENTER" layoutX="100.0" layoutY="400.0" prefHeight="100.0" prefWidth="600.0" textFill="RED" visible="false">
             <font>
                 <Font size="63.0" />
             </font>
