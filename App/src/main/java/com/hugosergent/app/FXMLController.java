@@ -173,7 +173,6 @@ public class FXMLController implements Initializable {
                 if (positionPrise == false) {
 
                     goban.ajouter(p);
-                    joueur.ListePierre.add(p);
 
                     logger.info("Ajout d'une pierre "+ joueur.toString() +" en position x:"+p.getpositionx()+", y:"+p.getpositiony());
                     //System.out.println("joueur: " + joueur.toString() + ", nombre de pierres: " + joueur.ListePierre.size());

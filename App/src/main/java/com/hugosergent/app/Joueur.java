@@ -5,7 +5,6 @@
  */
 package com.hugosergent.app;
 
-import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
 /**
@@ -16,7 +15,6 @@ public class Joueur {
 
     private boolean passe;
     private Color couleur;
-    ArrayList<Pierre> ListePierre = new ArrayList<>();
     private int score;
 
     /**
