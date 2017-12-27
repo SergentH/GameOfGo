@@ -8,7 +8,7 @@ package com.hugosergent.app;
 import javafx.scene.paint.Color;
 
 /**
- *
+ *Classe permettant de définir une pierre
  * @author Hugo
  */
 public class Pierre {
@@ -41,6 +41,25 @@ public class Pierre {
     public Color getColor()
     {
         return this.couleur;
+    }
+    
+    /*
+    *Methode permettant de convertir les couleurs JavaFX en String
+    */
+    @Override
+     public String toString()
+    {
+        String teinte = null;
+        
+        if(this.couleur == Color.BLACK)
+        {
+            teinte = "noir";
+        }
+        else if(this.couleur == Color.WHITE)
+        {
+            teinte = "blanc";
+        }  
+        return teinte;
     }
 
 }

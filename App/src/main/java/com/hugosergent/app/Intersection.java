@@ -6,24 +6,21 @@
 package com.hugosergent.app;
 
 /**
- *
+ *Classe permettant de définir une intersection vide
  * @author Hugo
  */
 public class Intersection {
     private int positionx;
     private int positiony;
-    boolean checked;
     
     Intersection()
     {
-        checked = false;
     }
     
     Intersection(int x,int y)
     {
         this.positionx = x;
         this.positiony = y;
-        checked = false;
     }
     
     public void setpositionx(int x) {

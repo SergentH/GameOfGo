@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
 /**
- *
+ *La classe Joueur permet de définir un joueur et son groupe de pierre
  * @author Hugo
  */
 public class Joueur {
@@ -19,7 +19,10 @@ public class Joueur {
     ArrayList<Pierre> ListePierre = new ArrayList<>();
     private int score;
 
-    Joueur() {
+    /**
+     *Constructeur de la classe
+     */
+    public Joueur() {
         this.passe = false;
         this.score=0;
     }
@@ -52,8 +55,23 @@ public class Joueur {
     public Color getCouleur() {
         return this.couleur;
     }
-
-    public String toString() {
-        return this.couleur.toString();
+    
+    /*
+    *Methode permettant de convertir les couleurs JavaFX en String
+    */
+    @Override
+    public String toString()
+    {
+        String teinte = null;
+        
+        if(this.couleur == Color.BLACK)
+        {
+            teinte = "noir";
+        }
+        else if(this.couleur == Color.WHITE)
+        {
+            teinte = "blanc";
+        }  
+        return teinte;
     }
 }

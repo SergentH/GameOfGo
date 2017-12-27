@@ -1,1 +1,19 @@
-2017-12-26 19:49:35 INFO  FXMLController:217 - La partie commence
+2017-12-27 14:25:27 INFO  FXMLController:222 - La partie commence
+2017-12-27 14:25:31 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:7, y:11
+2017-12-27 14:25:43 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:6, y:10
+2017-12-27 14:25:47 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:6, y:8
+2017-12-27 14:25:53 INFO  FXMLController:70 - Le joueur blanc passe son tour
+2017-12-27 14:25:57 INFO  FXMLController:136 - Le joueur noir redonne la main
+2017-12-27 14:26:02 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:8, y:10
+2017-12-27 14:26:06 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:7, y:7
+2017-12-27 14:26:07 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:7, y:10
+2017-12-27 14:26:10 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:5, y:7
+2017-12-27 14:26:11 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:6, y:11
+2017-12-27 14:26:12 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:6, y:6
+2017-12-27 14:26:13 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:7, y:12
+2017-12-27 14:26:15 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:7, y:5
+2017-12-27 14:26:16 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:8, y:11
+2017-12-27 14:26:22 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:8, y:6
+2017-12-27 14:26:24 INFO  FXMLController:70 - Le joueur blanc passe son tour
+2017-12-27 14:26:27 INFO  FXMLController:70 - Le joueur noir passe son tour
+2017-12-27 14:26:27 INFO  FXMLController:114 - VICTOIRE du joueur noir

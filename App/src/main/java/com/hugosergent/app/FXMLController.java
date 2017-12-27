@@ -15,6 +15,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+/**
+ * La Classe FXMLController permet de modéliser le plateau et les actions qui sont possibles
+ *
+ * @author Hugo
+ */
 public class FXMLController implements Initializable {
 
     @FXML
@@ -59,15 +64,15 @@ public class FXMLController implements Initializable {
     Joueur noir = new Joueur();
 
     /*FIN CREATION DES JOUEURS*/
- /*
+    /*
     * Fonction permettant a un joueur de passer son tour
      */
     @FXML
     public void BPasserPressed() {
         /*faire un boolean pour empecher le retour du clic*/
-
+        
         joueur.setPasse(true);
-
+        logger.info("Le joueur "+ joueur.toString() + " passe son tour");
         /*Changement de joueur*/
         Tour = !Tour;
         if (Tour == true) {
@@ -111,14 +116,17 @@ public class FXMLController implements Initializable {
             if(noir.getScore() >  blanc.getScore())
             {
                 LabelFin.setText("Vainqueur NOIR");
+                logger.info("VICTOIRE du joueur "+ noir.toString());
             }
             else if(noir.getScore() <  blanc.getScore())
             {
                 LabelFin.setText("Vainqueur BLANC");
+                logger.info("VICTOIRE du joueur "+ blanc.toString());
             }
             else
             {
                 LabelFin.setText("EGALITE");
+                logger.info("EGALITE");
             }
 
         }
@@ -130,6 +138,7 @@ public class FXMLController implements Initializable {
     @FXML
     public void ReMainPressed() {
 
+        logger.info("Le joueur "+ joueur.toString() + " redonne la main");
         /*Changement de joueur*/
         Tour = !Tour;
 
@@ -166,6 +175,7 @@ public class FXMLController implements Initializable {
                     goban.ajouter(p);
                     joueur.ListePierre.add(p);
 
+                    logger.info("Ajout d'une pierre "+ joueur.toString() +" en position x:"+p.getpositionx()+", y:"+p.getpositiony());
                     //System.out.println("joueur: " + joueur.toString() + ", nombre de pierres: " + joueur.ListePierre.size());
                     //System.out.println("Ajout de la pierre; " + p.getpositionx()+ " "+ p.getpositiony());
                     goban.MiseAJourGoban(p);
@@ -222,7 +232,6 @@ public class FXMLController implements Initializable {
         /*fin attribution des couleurs*/
 
  /*Lancement de la partie*/
-        System.out.println("CA COMMENCE\n");
         joueur = noir;
         couleur = joueur.getCouleur();
 

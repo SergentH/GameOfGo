@@ -7,6 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * La Classe MainApp permet de lancer les différents élements nécessaires a l'application
+ *
+ * @author Hugo
+ */
 public class MainApp extends Application {
 
     @Override
