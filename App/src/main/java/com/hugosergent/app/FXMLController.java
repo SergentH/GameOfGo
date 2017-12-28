@@ -177,8 +177,11 @@ public class FXMLController implements Initializable {
                     logger.info("Ajout d'une pierre "+ joueur.toString() +" en position x:"+p.getpositionx()+", y:"+p.getpositiony());
                     //System.out.println("joueur: " + joueur.toString() + ", nombre de pierres: " + joueur.ListePierre.size());
                     //System.out.println("Ajout de la pierre; " + p.getpositionx()+ " "+ p.getpositiony());
-                    goban.MiseAJourGoban(p);
-
+                    
+                    int score = 0;
+                    score = goban.MiseAJourGoban(p);
+                    joueur.setScore(score);
+                    
                     /*Mise a jour graphique*/
                     MiseAJourGraphique();
 
@@ -194,6 +197,10 @@ public class FXMLController implements Initializable {
                     }
                     /*Definition de la nouvelle couleur*/
                     couleur = joueur.getCouleur();
+                    
+                    /*Mise a jour des points*/
+                    PointsNoir.setText(Integer.toString(noir.getScore()));
+                    PointsBlanc.setText(Integer.toString(blanc.getScore()));
                 }
                 /*Fin positionPrise*/
             }

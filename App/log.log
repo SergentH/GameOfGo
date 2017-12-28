@@ -1,19 +1,27 @@
-2017-12-27 14:25:27 INFO  FXMLController:222 - La partie commence
-2017-12-27 14:25:31 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:7, y:11
-2017-12-27 14:25:43 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:6, y:10
-2017-12-27 14:25:47 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:6, y:8
-2017-12-27 14:25:53 INFO  FXMLController:70 - Le joueur blanc passe son tour
-2017-12-27 14:25:57 INFO  FXMLController:136 - Le joueur noir redonne la main
-2017-12-27 14:26:02 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:8, y:10
-2017-12-27 14:26:06 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:7, y:7
-2017-12-27 14:26:07 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:7, y:10
-2017-12-27 14:26:10 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:5, y:7
-2017-12-27 14:26:11 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:6, y:11
-2017-12-27 14:26:12 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:6, y:6
-2017-12-27 14:26:13 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:7, y:12
-2017-12-27 14:26:15 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:7, y:5
-2017-12-27 14:26:16 INFO  FXMLController:173 - Ajout d'une pierre blanc en position x:8, y:11
-2017-12-27 14:26:22 INFO  FXMLController:173 - Ajout d'une pierre noir en position x:8, y:6
-2017-12-27 14:26:24 INFO  FXMLController:70 - Le joueur blanc passe son tour
-2017-12-27 14:26:27 INFO  FXMLController:70 - Le joueur noir passe son tour
-2017-12-27 14:26:27 INFO  FXMLController:114 - VICTOIRE du joueur noir
+2017-12-28 11:53:15 INFO  FXMLController:233 - La partie commence
+2017-12-28 11:53:18 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:8, y:12
+2017-12-28 11:53:21 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:9, y:12
+2017-12-28 11:53:23 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:11, y:9
+2017-12-28 11:53:25 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:10, y:9
+2017-12-28 11:53:26 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:9, y:11
+2017-12-28 11:53:27 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:11, y:8
+2017-12-28 11:53:29 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:10, y:12
+2017-12-28 11:53:30 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:12, y:9
+2017-12-28 11:53:31 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:9, y:13
+2017-12-28 11:53:33 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:11, y:10
+2017-12-28 11:53:42 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:4, y:10
+2017-12-28 11:53:44 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:5, y:9
+2017-12-28 11:53:45 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:4, y:9
+2017-12-28 11:53:45 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:5, y:8
+2017-12-28 11:53:46 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:5, y:6
+2017-12-28 11:53:47 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:4, y:8
+2017-12-28 11:53:48 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:3, y:6
+2017-12-28 11:53:48 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:3, y:7
+2017-12-28 11:53:49 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:1, y:6
+2017-12-28 11:53:51 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:3, y:9
+2017-12-28 11:53:51 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:1, y:8
+2017-12-28 11:53:52 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:3, y:10
+2017-12-28 11:53:53 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:0, y:11
+2017-12-28 11:53:53 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:4, y:11
+2017-12-28 11:53:54 INFO  FXMLController:177 - Ajout d'une pierre noir en position x:2, y:13
+2017-12-28 11:53:55 INFO  FXMLController:177 - Ajout d'une pierre blanc en position x:5, y:10
